@@ -163,6 +163,105 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/12/%E5%8D%9A%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic_1.jpg">
+      <meta itemprop="name" content="Raize">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Raize's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/12/%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">关于使用busuanzi无法显示</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-12 18:01:25 / 修改时间：18:20:31" itemprop="dateCreated datePublished" datetime="2021-04-12T18:01:25+08:00">2021-04-12</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>​    最近搭建博客时发现文字内容无法显示</p>
+<p><img src="/2021/04/12/%E5%8D%9A%E5%AE%A2/image-20210412180415709.png" alt="image-20210412180415709"></p>
+<p>（就像上图，红色部分不显示）。</p>
+<p>首先我的显示是通过在<code>\themes\next\_config</code>文件中增加<code>busuanzi</code>相关代码以及在</p>
+<p><code>\themes\next\layout\_partials\footer</code>下增加相关代码实现的：(相关代码如下)</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config下代码</span></span><br><span class="line"><span class="attr">busuanzi_count:</span> <span class="comment">#计算访问量</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">site_uv:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">site-pv:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">page_pv:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># footer下代码</span></span><br><span class="line"><span class="string">&lt;span</span> <span class="string">style=&quot;display:</span> <span class="string">inline-block;&quot;&gt;</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-item-icon&quot;&gt;</span></span><br><span class="line">        <span class="string">&lt;i</span> <span class="string">class=&quot;&#123;&#123;</span> <span class="string">theme.busuanzi_count.total_views_icon</span> <span class="string">&#125;&#125;&quot;&gt;&lt;/i&gt;</span></span><br><span class="line">      <span class="string">&lt;/span&gt;</span></span><br><span class="line">    <span class="string">经过&lt;span</span> <span class="string">id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;次回眸与你再相遇&lt;/span&gt;</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">style=&quot;display:</span> <span class="string">inline-block;&quot;&gt;</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-item-icon&quot;&gt;</span></span><br><span class="line">        <span class="string">&lt;i</span> <span class="string">class=&quot;&#123;&#123;</span> <span class="string">theme.busuanzi_count.total_visitors_icon</span> <span class="string">&#125;&#125;&quot;&gt;&lt;/i&gt;</span></span><br><span class="line">    <span class="string">&lt;/span&gt;</span></span><br><span class="line">    <span class="string">我的第&lt;span</span> <span class="string">id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;朋友&lt;/span&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我之前<code>footer</code>代码如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&lt;!--</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">id=&quot;busuanzi_container_site_pv&quot;</span> <span class="string">style=&quot;display:</span> <span class="string">inline-block;&quot;&gt;我的第&lt;span</span> <span class="string">id=&quot;busuanzi_value_site_pv&quot;&gt;&lt;/span&gt;朋友&lt;/span&gt;</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">class=&quot;post-meta-divider&quot;&gt;|&lt;/span&gt;</span></span><br><span class="line">    <span class="string">&lt;span</span> <span class="string">id=&quot;busuanzi_container_site_uv&quot;</span> <span class="string">style=&quot;display:</span> <span class="string">inline-block;&quot;&gt;经过&lt;span</span> <span class="string">id=&quot;busuanzi_value_site_uv&quot;&gt;&lt;/span&gt;次回眸与你再相遇&lt;/span&gt;</span></span><br><span class="line"><span class="string">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>与成功之后的差别就是去掉了<code>id</code>部分，即</p>
+<p><img src="/2021/04/12/%E5%8D%9A%E5%AE%A2/image-20210412181407513.png" alt="image-20210412181407513"></p>
+<p>当然还有针对于不同情况还有不同解决方法，例如</p>
+<ol>
+<li><p>在<code>busuanzi-count</code>文件中将<code>display:none</code>删掉即可。</p>
+</li>
+<li><p>网上还有人说是与看板娘冲突。</p>
+<p>等等</p>
+</li>
+</ol>
+
+      
+
+
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+
+
+
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/07/pytorch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,7 +293,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-12 09:28:12" itemprop="dateModified" datetime="2021-04-12T09:28:12+08:00">2021-04-12</time>
+                <time title="修改时间：2021-04-12 18:00:21" itemprop="dateModified" datetime="2021-04-12T18:00:21+08:00">2021-04-12</time>
               </span>
 
           <br>
@@ -223,8 +322,6 @@
 
       
           <p> 这其实还是一个测试。</p>
-<p><img src="/2021/04/07/pytorch/pytorch%5CQQ%E6%88%AA%E5%9B%BE20191026142827.png" alt="QQ截图20191026142827"></p>
-<p><img src="/2021/04/07/pytorch/image-20210412092808821.png" alt="image-20210412092808821"></p>
 
       
 
@@ -398,14 +495,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -446,13 +543,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">0k</span>
+    <span title="站点总字数">2k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1 分钟</span>
+    <span title="站点阅读时长">2 分钟</span>
 </div>
 
 
